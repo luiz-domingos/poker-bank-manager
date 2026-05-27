@@ -2,22 +2,29 @@
 <html lang="pt-BR">
 
 <head>
+
     <meta charset="UTF-8">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Poker Bank Manager</title>
 
     <!-- Bootstrap -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css"
+        rel="stylesheet"
+    >
 
     <!-- CSS -->
     <link rel="stylesheet" href="style.css">
+
 </head>
 
 <body>
 
     <div class="container mt-5">
 
+        <!-- TÍTULO -->
         <h1 class="text-center mb-4">
             Poker Bank Manager
         </h1>
@@ -25,55 +32,154 @@
         <!-- FORMULÁRIO -->
         <div class="card p-4 mb-4">
 
-            <h3>Cadastrar Sessão</h3>
+            <h3 class="mb-4">
+                Cadastrar Sessão
+            </h3>
 
             <form id="sessionForm">
 
                 <div class="row">
 
+                    <!-- DATA -->
                     <div class="col-md-4 mb-3">
-                        <label>Data</label>
-                        <input type="date" class="form-control" id="date" required>
+
+                        <label class="form-label">
+                            Data
+                        </label>
+
+                        <input
+                            type="date"
+                            class="form-control"
+                            id="date"
+                            required
+                        >
+
                     </div>
 
+                    <!-- SALA -->
                     <div class="col-md-4 mb-3">
-                        <label>Sala</label>
-                        <input type="text" class="form-control" id="room" required>
+
+                        <label class="form-label">
+                            Sala
+                        </label>
+
+                        <input
+                            type="text"
+                            class="form-control"
+                            id="room"
+                            placeholder="Ex: PokerStars"
+                            required
+                        >
+
                     </div>
 
+                    <!-- MODALIDADE -->
                     <div class="col-md-4 mb-3">
-                        <label>Modalidade</label>
-                        <input type="text" class="form-control" id="game_type" required>
+
+                        <label class="form-label">
+                            Modalidade
+                        </label>
+
+                        <input
+                            type="text"
+                            class="form-control"
+                            id="game_type"
+                            placeholder="Ex: Cash Game"
+                            required
+                        >
+
                     </div>
 
+                    <!-- STAKE -->
                     <div class="col-md-4 mb-3">
-                        <label>Stake</label>
-                        <input type="text" class="form-control" id="stake" required>
+
+                        <label class="form-label">
+                            Stake
+                        </label>
+
+                        <input
+                            type="text"
+                            class="form-control"
+                            id="stake"
+                            placeholder="Ex: NL10"
+                            required
+                        >
+
                     </div>
 
+                    <!-- BUY IN -->
                     <div class="col-md-4 mb-3">
-                        <label>Buy-in</label>
-                        <input type="number" class="form-control" id="buy_in" required>
+
+                        <label class="form-label">
+                            Buy-in
+                        </label>
+
+                        <input
+                            type="number"
+                            class="form-control"
+                            id="buy_in"
+                            placeholder="100"
+                            required
+                        >
+
                     </div>
 
+                    <!-- CASH OUT -->
                     <div class="col-md-4 mb-3">
-                        <label>Cash-out</label>
-                        <input type="number" class="form-control" id="cash_out" required>
+
+                        <label class="form-label">
+                            Cash-out
+                        </label>
+
+                        <input
+                            type="number"
+                            class="form-control"
+                            id="cash_out"
+                            placeholder="150"
+                            required
+                        >
+
                     </div>
 
+                    <!-- LUCRO -->
                     <div class="col-md-6 mb-3">
-                        <label>Lucro</label>
-                        <input type="number" class="form-control" id="profit" required>
+
+                        <label class="form-label">
+                            Lucro
+                        </label>
+
+                        <input
+                            type="number"
+                            class="form-control"
+                            id="profit"
+                            readonly
+                        >
+
                     </div>
 
+                    <!-- OBSERVAÇÕES -->
                     <div class="col-md-6 mb-3">
-                        <label>Observações</label>
-                        <input type="text" class="form-control" id="notes">
+
+                        <label class="form-label">
+                            Observações
+                        </label>
+
+                        <input
+                            type="text"
+                            class="form-control"
+                            id="notes"
+                            placeholder="Anotações da sessão"
+                        >
+
                     </div>
 
                 </div>
 
-                <button type="submit" class="btn btn-success">
+                <!-- BOTÃO -->
+                <button
+                    type="submit"
+                    class="btn btn-success"
+                >
                     Salvar Sessão
                 </button>
 
@@ -84,18 +190,30 @@
         <!-- TABELA -->
         <div class="card p-4">
 
-            <h3>Histórico de Sessões</h3>
+            <h3>
+                Histórico de Sessões
+            </h3>
 
-            <table class="table table-striped mt-3">
+            <table class="table table-striped table-hover mt-3">
 
-                <thead>
+                <thead class="table-dark">
+
                     <tr>
+
                         <th>ID</th>
+
                         <th>Data</th>
+
                         <th>Sala</th>
+
                         <th>Stake</th>
+
                         <th>Lucro</th>
+
+                        <th>Ações</th>
+
                     </tr>
+
                 </thead>
 
                 <tbody id="sessionTable">
@@ -108,6 +226,7 @@
 
     </div>
 
+    <!-- SCRIPT -->
     <script src="script.js"></script>
 
 </body>

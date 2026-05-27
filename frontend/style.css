@@ -1,11 +1,136 @@
 body {
-    background-color: #f5f5f5;
+
+    background-color: #f4f6f9;
+
+    font-family: Arial, Helvetica, sans-serif;
+
 }
 
+
+/* TÍTULO */
 h1 {
+
     font-weight: bold;
+
+    color: #198754;
+
 }
 
+
+/* CARDS */
 .card {
-    border-radius: 10px;
+
+    border: none;
+
+    border-radius: 14px;
+
+    box-shadow: 0px 3px 12px rgba(0, 0, 0, 0.1);
+
+    transition: 0.3s;
+
+}
+
+
+.card:hover {
+
+    transform: translateY(-3px);
+
+}
+
+
+/* DASHBOARD */
+.card h2 {
+
+    font-size: 2rem;
+
+    font-weight: bold;
+
+}
+
+
+/* FORMULÁRIOS */
+.form-control {
+
+    border-radius: 8px;
+
+}
+
+
+.form-control:focus {
+
+    box-shadow: 0 0 5px rgba(25, 135, 84, 0.5);
+
+    border-color: #198754;
+
+}
+
+
+/* BOTÕES */
+.btn {
+
+    border-radius: 8px;
+
+    font-weight: 500;
+
+    transition: 0.2s;
+
+}
+
+
+.btn:hover {
+
+    opacity: 0.9;
+
+}
+
+
+/* TABELA */
+.table {
+
+    margin-top: 20px;
+
+    vertical-align: middle;
+
+}
+
+
+.table th {
+
+    text-align: center;
+
+}
+
+
+.table td {
+
+    text-align: center;
+
+}
+
+
+/* LUCRO POSITIVO */
+.text-success {
+
+    font-weight: bold;
+
+}
+
+
+/* LUCRO NEGATIVO */
+.text-danger {
+
+    font-weight: bold;
+
+}
+
+
+/* RESPONSIVIDADE */
+@media (max-width: 768px) {
+
+    h1 {
+
+        font-size: 1.8rem;
+
+    }
+
 }
