@@ -1,21 +1,20 @@
-const express = require('express');
-const cors = require('cors');
+const mysql = require('mysql2');
 
-require('./config/db');
-
-const app = express();
-
-app.use(cors());
-app.use(express.json());
-
-app.get('/', (req, res) => {
-    res.json({
-        message: 'API Poker Bank Manager funcionando!'
-    });
+const connection = mysql.createConnection({
+    host: 'localhost',
+    user: 'root',
+    password: '',
+    database: 'poker_manager'
 });
 
-const PORT = 3000;
+connection.connect((err) => {
 
-app.listen(PORT, () => {
-    console.log(`Servidor rodando na porta ${PORT}`);
+    if (err) {
+        console.log('Erro ao conectar no banco:', err);
+    } else {
+        console.log('Conectado ao MySQL!');
+    }
+
 });
+
+module.exports = connection;
