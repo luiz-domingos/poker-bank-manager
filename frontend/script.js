@@ -1,3 +1,11 @@
+if (
+    localStorage.getItem('logged')
+    !== 'true'
+) {
+
+    window.location.href =
+        'login.html';
+}
 const API_URL = 'http://localhost:3000/sessions';
 
 const form =

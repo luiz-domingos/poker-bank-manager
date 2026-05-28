@@ -1,0 +1,154 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>
+        Poker Bank Manager
+    </title>
+
+    <!-- Bootstrap -->
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css"
+        rel="stylesheet"
+    >
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+    <div
+        class="container d-flex
+        justify-content-center
+        align-items-center"
+        style="min-height: 100vh;"
+    >
+
+        <div
+            class="main-card"
+            style="width: 420px;"
+        >
+
+            <!-- TÍTULO -->
+            <h1 class="main-title mb-2">
+
+                Poker Bank 
+
+            </h1>
+
+            <!-- SUBTÍTULO -->
+            <p
+                class="text-center mb-4"
+                style="
+                    color: #94a3b8;
+                    font-size: 15px;
+                "
+            >
+
+                Gerencie suas sessões,
+                bankroll e resultados
+
+            </p>
+
+            <!-- FORM -->
+            <form id="loginForm">
+
+                <!-- USUÁRIO -->
+                <div class="mb-3">
+
+                    <label class="form-label">
+
+                        Usuário
+
+                    </label>
+
+                    <input
+                        type="text"
+                        class="form-control"
+                        id="username"
+                        placeholder="Digite seu usuário"
+                        required
+                    >
+
+                </div>
+
+                <!-- SENHA -->
+                <div class="mb-4">
+
+                    <label class="form-label">
+
+                        Senha
+
+                    </label>
+
+                    <input
+                        type="password"
+                        class="form-control"
+                        id="password"
+                        placeholder="Digite sua senha"
+                        required
+                    >
+
+                </div>
+
+                <!-- BOTÃO LOGIN -->
+                <button
+                    type="submit"
+                    class="btn btn-success w-100"
+                >
+
+                    Entrar
+
+                </button>
+
+                <!-- ERRO -->
+                <p
+                    id="errorMessage"
+                    class="text-danger mt-3 text-center"
+                >
+                </p>
+
+            </form>
+
+            <!-- REGISTRO -->
+            <div class="text-center mt-4">
+
+                <p style="color: #94a3b8;">
+
+                    Ainda não possui conta?
+
+                </p>
+
+                <button
+                    class="btn btn-outline-light w-100"
+                    onclick="registerUser()"
+                >
+
+                    Criar Conta
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- JS -->
+    <script src="login.js"></script>
+
+</body>
+
+</html>
+```
