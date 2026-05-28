@@ -1,106 +1,123 @@
-# Poker Bank Manager
+# ♠ Poker Bank Manager
 
-Sistema web completo para gerenciamento de banca de poker.
-
-Projeto desenvolvido para a disciplina de Programação II - Web da UEMG.
+Sistema web desenvolvido para gerenciamento de sessões de poker, bankroll e resultados financeiros.
 
 ---
 
-# Objetivo do Projeto
+# 📌 Sobre o Projeto
 
-O sistema foi desenvolvido com o objetivo de auxiliar jogadores de poker no controle de bankroll e gerenciamento de sessões.
+O Poker Bank Manager é uma aplicação web desenvolvida utilizando:
 
-A aplicação permite cadastrar, visualizar, editar e remover sessões de poker, além de exibir estatísticas importantes como lucro total e bankroll atual.
+* Front-end com HTML, CSS e JavaScript;
+* Back-end com Node.js e Express;
+* Banco de dados MySQL;
+* API REST para comunicação entre cliente e servidor.
+
+O sistema permite registrar, visualizar, editar e excluir sessões de poker, além de possuir autenticação simples de usuários e dashboard com estatísticas.
 
 ---
 
-# Tecnologias Utilizadas
+# 🚀 Funcionalidades
+
+## ✅ Autenticação
+
+* Login de usuário
+* Cadastro de usuário
+* Proteção de acesso
+
+## ✅ Sessões de Poker
+
+* Cadastro de sessões
+* Listagem de sessões
+* Edição de sessões
+* Exclusão de sessões
+
+## ✅ Dashboard
+
+* Total de sessões
+* Lucro total
+* Melhor sessão
+
+## ✅ Recursos Extras
+
+* Cálculo automático de lucro
+* Interface responsiva
+* Tema dark moderno
+* Dashboard estilo poker/cassino
+
+---
+
+# 🛠 Tecnologias Utilizadas
 
 ## Front-end
-- HTML5
-- CSS3
-- Bootstrap 5
-- JavaScript
+
+* HTML5
+* CSS3
+* JavaScript
+* Bootstrap 5
 
 ## Back-end
-- Node.js
-- Express
+
+* Node.js
+* Express.js
 
 ## Banco de Dados
-- MySQL
+
+* MySQL
+
+## Versionamento
+
+* Git
+* GitHub
 
 ---
 
-# Funcionalidades
+# 📂 Estrutura do Projeto
 
-## CRUD Completo de Sessões
-
-O sistema possui:
-
-- Cadastro de sessões
-- Listagem de sessões
-- Busca de sessão por ID
-- Edição de sessões
-- Exclusão de sessões
-
----
-
-# Dashboard
-
-O sistema também apresenta:
-
-- Total de sessões
-- Lucro total
-- Bankroll atual
-- Cálculo automático de lucro
-
----
-
-# Estrutura do Projeto
-
-```txt
+```bash
 poker-bank-manager/
+│
+├── backend/
+│   ├── src/
+│   │   ├── config/
+│   │   ├── controllers/
+│   │   ├── models/
+│   │   ├── routes/
+│   │   └── server.js
 │
 ├── frontend/
 │   ├── index.html
-│   ├── style.css
-│   └── script.js
-│
-├── backend/
-│   ├── package.json
-│   └── src/
-│       ├── config/
-│       ├── controllers/
-│       ├── models/
-│       ├── routes/
-│       └── server.js
-│
-├── database/
+│   ├── login.html
+│   ├── register.html
+│   ├── script.js
+│   ├── login.js
+│   ├── register.js
+│   └── style.css
 │
 └── README.md
 ```
 
 ---
 
-# Como Executar o Projeto
+# ⚙️ Como Executar o Projeto
 
-## 1. Clonar o Repositório
+## 1️⃣ Clonar o repositório
 
 ```bash
-git clone URL_DO_REPOSITORIO
+git clone https://github.com/SEU-USUARIO/poker-bank-manager.git
 ```
 
 ---
 
-## 2. Entrar na Pasta do Backend
+## 2️⃣ Instalar dependências
+
+Acesse a pasta backend:
 
 ```bash
 cd backend
 ```
 
----
-
-## 3. Instalar Dependências
+Instale as dependências:
 
 ```bash
 npm install
@@ -108,99 +125,114 @@ npm install
 
 ---
 
-## 4. Configurar Banco de Dados
+## 3️⃣ Configurar banco MySQL
 
-Criar banco:
-
-```sql
-CREATE DATABASE poker_manager;
-```
-
-Selecionar banco:
+Crie o banco:
 
 ```sql
-USE poker_manager;
+CREATE DATABASE poker_bank_manager;
 ```
 
-Criar tabela:
+---
+
+## 4️⃣ Criar tabela
 
 ```sql
 CREATE TABLE sessions (
+
     id INT AUTO_INCREMENT PRIMARY KEY,
-    date DATE NOT NULL,
-    room VARCHAR(100) NOT NULL,
-    game_type VARCHAR(100) NOT NULL,
-    stake VARCHAR(50) NOT NULL,
-    buy_in DECIMAL(10,2) NOT NULL,
-    cash_out DECIMAL(10,2) NOT NULL,
-    profit DECIMAL(10,2) NOT NULL,
+
+    session_date DATE,
+
+    room VARCHAR(100),
+
+    game_type VARCHAR(100),
+
+    stake VARCHAR(50),
+
+    buy_in DECIMAL(10,2),
+
+    cash_out DECIMAL(10,2),
+
+    profit DECIMAL(10,2),
+
     notes TEXT
 );
 ```
 
 ---
 
-## 5. Executar Backend
+## 5️⃣ Configurar conexão MySQL
 
-Entrar na pasta backend:
-
-```bash
-cd backend
-```
-
-Executar servidor:
+Arquivo:
 
 ```bash
-npm start
+backend/src/config/db.js
 ```
 
-Servidor disponível em:
+Configure:
 
-```txt
+* usuário
+* senha
+* banco
+
+---
+
+## 6️⃣ Executar servidor
+
+Na pasta backend:
+
+```bash
+node src/server.js
+```
+
+Servidor:
+
+```bash
 http://localhost:3000
 ```
 
 ---
 
-## 6. Executar Frontend
+## 7️⃣ Executar frontend
 
-Abrir o arquivo:
+Abra:
 
-```txt
-frontend/index.html
+```bash
+frontend/login.html
 ```
 
 ---
 
-# Endpoints da API
+# 📡 Endpoints da API
 
-| Método | Endpoint | Descrição |
-|---|---|---|
-| GET | /sessions | Lista todas as sessões |
-| GET | /sessions/:id | Busca sessão por ID |
-| POST | /sessions | Cadastra sessão |
-| PUT | /sessions/:id | Atualiza sessão |
-| DELETE | /sessions/:id | Remove sessão |
+## Sessões
 
----
-
-# Exemplo de JSON
-
-```json
-{
-  "date": "2026-05-27",
-  "room": "PokerStars",
-  "game_type": "Cash Game",
-  "stake": "NL10",
-  "buy_in": 100,
-  "cash_out": 150,
-  "profit": 50,
-  "notes": "Sessão positiva"
-}
-```
+| Método | Endpoint      | Descrição       |
+| ------ | ------------- | --------------- |
+| GET    | /sessions     | Lista sessões   |
+| GET    | /sessions/:id | Busca sessão    |
+| POST   | /sessions     | Cria sessão     |
+| PUT    | /sessions/:id | Atualiza sessão |
+| DELETE | /sessions/:id | Remove sessão   |
 
 ---
 
-# Autor
+# 📸 Interface
 
-Projeto desenvolvido por Luiz Gustavo para a disciplina de Programação II - Web.
+O sistema possui:
+
+* dashboard moderno;
+* cards estatísticos;
+* tabela dinâmica;
+* autenticação;
+* responsividade;
+* tema dark.
+
+---
+
+# 👨‍💻 Autor
+
+Projeto desenvolvido para atividade acadêmica de Desenvolvimento Web Full Stack.
+
+Desenvolvido por Luiz Gustavo.
