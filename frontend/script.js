@@ -1,6 +1,7 @@
 const API_URL = 'http://localhost:3000/sessions';
 
-const form = document.getElementById('sessionForm');
+const form =
+    document.getElementById('sessionForm');
 
 const tableBody =
     document.getElementById('sessionsTableBody');
@@ -19,11 +20,28 @@ async function loadSessions() {
 
         tableBody.innerHTML += `
             <tr>
-                <td>${session.id}</td>
-                <td>${session.game_type}</td>
-                <td>R$ ${session.buy_in}</td>
-                <td>R$ ${session.cash_out}</td>
+
                 <td>${session.session_date}</td>
+
+                <td>${session.room}</td>
+
+                <td>${session.game_type}</td>
+
+                <td>${session.stake}</td>
+
+                <td>R$ ${session.buy_in}</td>
+
+                <td>R$ ${session.cash_out}</td>
+
+                <td class="
+                    ${session.profit >= 0
+                        ? 'text-success'
+                        : 'text-danger'}
+                ">
+                    R$ ${session.profit}
+                </td>
+
+                <td>${session.notes || ''}</td>
 
                 <td>
                     <button
@@ -33,30 +51,50 @@ async function loadSessions() {
                         Excluir
                     </button>
                 </td>
+
             </tr>
         `;
     });
 }
 
 
-// CADASTRAR SESSÃO
+// CADASTRAR
 form.addEventListener('submit', async (e) => {
 
     e.preventDefault();
 
+    const buyIn =
+        parseFloat(
+            document.getElementById('buy_in').value
+        );
+
+    const cashOut =
+        parseFloat(
+            document.getElementById('cash_out').value
+        );
+
     const data = {
+
+        session_date:
+            document.getElementById('session_date').value,
+
+        room:
+            document.getElementById('room').value,
 
         game_type:
             document.getElementById('game_type').value,
 
-        buy_in:
-            document.getElementById('buy_in').value,
+        stake:
+            document.getElementById('stake').value,
 
-        cash_out:
-            document.getElementById('cash_out').value,
+        buy_in: buyIn,
 
-        session_date:
-            document.getElementById('session_date').value
+        cash_out: cashOut,
+
+        profit: cashOut - buyIn,
+
+        notes:
+            document.getElementById('notes').value
     };
 
     await fetch(API_URL, {
@@ -88,5 +126,5 @@ async function deleteSession(id) {
 }
 
 
-// CARREGAR AO ABRIR
+// CARREGAR AO INICIAR
 loadSessions();
