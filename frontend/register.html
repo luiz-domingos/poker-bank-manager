@@ -11,7 +11,7 @@
     >
 
     <title>
-        Poker Bank Manager
+        Criar Conta
     </title>
 
     <!-- Bootstrap -->
@@ -42,26 +42,23 @@
             <!-- TÍTULO -->
             <h1 class="main-title mb-2">
 
-                ♠ Poker Bank Manager ♠
+                ♠ Criar Conta ♠
 
             </h1>
 
-            <!-- SUBTÍTULO -->
             <p
                 class="text-center mb-4"
                 style="
                     color: #94a3b8;
-                    font-size: 15px;
                 "
             >
 
-                Gerencie suas sessões,
-                bankroll e resultados
+                Registre um novo usuário
 
             </p>
 
             <!-- FORM -->
-            <form id="loginForm">
+            <form id="registerForm">
 
                 <!-- USUÁRIO -->
                 <div class="mb-3">
@@ -76,14 +73,13 @@
                         type="text"
                         class="form-control"
                         id="username"
-                        placeholder="Digite seu usuário"
                         required
                     >
 
                 </div>
 
                 <!-- SENHA -->
-                <div class="mb-4">
+                <div class="mb-3">
 
                     <label class="form-label">
 
@@ -95,48 +91,58 @@
                         type="password"
                         class="form-control"
                         id="password"
-                        placeholder="Digite sua senha"
                         required
                     >
 
                 </div>
 
-                <!-- BOTÃO LOGIN -->
+                <!-- CONFIRMAR -->
+                <div class="mb-4">
+
+                    <label class="form-label">
+
+                        Confirmar Senha
+
+                    </label>
+
+                    <input
+                        type="password"
+                        class="form-control"
+                        id="confirmPassword"
+                        required
+                    >
+
+                </div>
+
+                <!-- BOTÃO -->
                 <button
                     type="submit"
                     class="btn btn-success w-100"
                 >
 
-                    Entrar
+                    Criar Conta
 
                 </button>
 
-                <!-- ERRO -->
                 <p
-                    id="errorMessage"
-                    class="text-danger mt-3 text-center"
+                    id="message"
+                    class="text-center mt-3"
                 >
                 </p>
 
             </form>
 
-            <!-- REGISTRO -->
+            <!-- VOLTAR -->
             <div class="text-center mt-4">
 
-                <p style="color: #94a3b8;">
-
-                    Ainda não possui conta?
-
-                </p>
-
-                <button
-                    class="btn btn-outline-light w-100"
-                    onclick="window.location.href='register.html'"
+                <a
+                    href="login.html"
+                    class="text-light"
                 >
 
-                    Criar Conta
+                    Voltar para Login
 
-                </button>
+                </a>
 
             </div>
 
@@ -144,8 +150,7 @@
 
     </div>
 
-    <!-- JS -->
-    <script src="login.js"></script>
+    <script src="register.js"></script>
 
 </body>
 
