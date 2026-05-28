@@ -25,12 +25,21 @@ const Session = {
 
         const sql = `
             INSERT INTO sessions
-            (date, room, game_type, stake, buy_in, cash_out, profit, notes)
+            (
+                session_date,
+                room,
+                game_type,
+                stake,
+                buy_in,
+                cash_out,
+                profit,
+                notes
+            )
             VALUES (?, ?, ?, ?, ?, ?, ?, ?)
         `;
 
         const values = [
-            data.date,
+            data.session_date,
             data.room,
             data.game_type,
             data.stake,
@@ -50,7 +59,7 @@ const Session = {
         const sql = `
             UPDATE sessions
             SET
-                date = ?,
+                session_date = ?,
                 room = ?,
                 game_type = ?,
                 stake = ?,
@@ -62,7 +71,7 @@ const Session = {
         `;
 
         const values = [
-            data.date,
+            data.session_date,
             data.room,
             data.game_type,
             data.stake,

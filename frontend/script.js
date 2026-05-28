@@ -1,33 +1,41 @@
-const apiUrl = 'http://localhost:3000/sessions';
+const API_URL = 'http://localhost:3000/sessions';
 
 const form = document.getElementById('sessionForm');
 
-const table = document.getElementById('sessionTable');
+const tableBody =
+    document.getElementById('sessionsTableBody');
 
 
 // LISTAR SESSÕES
 async function loadSessions() {
 
-    const response = await fetch(apiUrl);
+    const response = await fetch(API_URL);
 
     const sessions = await response.json();
 
-    table.innerHTML = '';
+    tableBody.innerHTML = '';
 
     sessions.forEach(session => {
 
-        table.innerHTML += `
+        tableBody.innerHTML += `
             <tr>
                 <td>${session.id}</td>
-                <td>${session.date}</td>
-                <td>${session.room}</td>
-                <td>${session.stake}</td>
-                <td>${session.profit}</td>
+                <td>${session.game_type}</td>
+                <td>R$ ${session.buy_in}</td>
+                <td>R$ ${session.cash_out}</td>
+                <td>${session.session_date}</td>
+
+                <td>
+                    <button
+                        onclick="deleteSession(${session.id})"
+                        class="btn btn-danger btn-sm"
+                    >
+                        Excluir
+                    </button>
+                </td>
             </tr>
         `;
-
     });
-
 }
 
 
@@ -36,20 +44,22 @@ form.addEventListener('submit', async (e) => {
 
     e.preventDefault();
 
-    const session = {
+    const data = {
 
-        date: document.getElementById('date').value,
-        room: document.getElementById('room').value,
-        game_type: document.getElementById('game_type').value,
-        stake: document.getElementById('stake').value,
-        buy_in: document.getElementById('buy_in').value,
-        cash_out: document.getElementById('cash_out').value,
-        profit: document.getElementById('profit').value,
-        notes: document.getElementById('notes').value
+        game_type:
+            document.getElementById('game_type').value,
 
+        buy_in:
+            document.getElementById('buy_in').value,
+
+        cash_out:
+            document.getElementById('cash_out').value,
+
+        session_date:
+            document.getElementById('session_date').value
     };
 
-    await fetch(apiUrl, {
+    await fetch(API_URL, {
 
         method: 'POST',
 
@@ -57,16 +67,26 @@ form.addEventListener('submit', async (e) => {
             'Content-Type': 'application/json'
         },
 
-        body: JSON.stringify(session)
-
+        body: JSON.stringify(data)
     });
 
     form.reset();
 
     loadSessions();
-
 });
 
 
-// CARREGAR AO INICIAR
+// EXCLUIR
+async function deleteSession(id) {
+
+    await fetch(`${API_URL}/${id}`, {
+
+        method: 'DELETE'
+    });
+
+    loadSessions();
+}
+
+
+// CARREGAR AO ABRIR
 loadSessions();
