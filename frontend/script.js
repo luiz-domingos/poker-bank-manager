@@ -253,8 +253,17 @@ form.addEventListener(
 );
 
 
-// EXCLUIR
 async function deleteSession(id) {
+
+    const confirmDelete =
+        confirm(
+            'Deseja realmente excluir esta sessão?'
+        );
+
+    if (!confirmDelete) {
+
+        return;
+    }
 
     await fetch(
 

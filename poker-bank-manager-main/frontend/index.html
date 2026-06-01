@@ -22,71 +22,18 @@
 
 <body>
 
-    <div class="container py-5">
+    <div class="container mt-5">
 
         <!-- TÍTULO -->
-        <h1 class="main-title">
-            ♠ Poker Bank Manager ♠
+        <h1 class="text-center mb-4">
+            Poker Bank Manager
         </h1>
 
-        <!-- CARDS -->
-        <div class="row mb-4">
-
-            <div class="col-md-4 mb-3">
-
-                <div class="main-card text-center">
-
-                    <h5>Total de Sessões</h5>
-
-                    <h2 id="totalSessions">
-                        0
-                    </h2>
-
-                </div>
-
-            </div>
-
-            <div class="col-md-4 mb-3">
-
-                <div class="main-card text-center">
-
-                    <h5>Lucro Total</h5>
-
-                    <h2
-                        id="totalProfit"
-                        class="text-success"
-                    >
-                        R$ 0
-                    </h2>
-
-                </div>
-
-            </div>
-
-            <div class="col-md-4 mb-3">
-
-                <div class="main-card text-center">
-
-                    <h5>Maior Win</h5>
-
-                    <h2
-                        id="bestSession"
-                        class="text-warning"
-                    >
-                        R$ 0
-                    </h2>
-
-                </div>
-
-            </div>
-
-        </div>
-
         <!-- FORMULÁRIO -->
-        <div class="main-card">
+        <div class="card p-4 mb-4">
 
             <h3 class="mb-4">
-                Registrar Sessão
+                Cadastrar Sessão
             </h3>
 
             <form id="sessionForm">
@@ -103,7 +50,7 @@
                         <input
                             type="date"
                             class="form-control"
-                            id="session_date"
+                            id="date"
                             required
                         >
 
@@ -231,9 +178,9 @@
                 <!-- BOTÃO -->
                 <button
                     type="submit"
-                    class="btn btn-success w-100"
+                    class="btn btn-success"
                 >
-                    💰 Salvar Sessão
+                    Salvar Sessão
                 </button>
 
             </form>
@@ -241,49 +188,39 @@
         </div>
 
         <!-- TABELA -->
-        <div class="main-card">
+        <div class="card p-4">
 
-            <h3 class="mb-4">
+            <h3>
                 Histórico de Sessões
             </h3>
 
-            <div class="table-responsive">
+            <table class="table table-striped table-hover mt-3">
 
-                <table class="table table-hover align-middle">
+                <thead class="table-dark">
 
-                    <thead>
+                    <tr>
 
-                        <tr>
+                        <th>ID</th>
 
-                            <th>Data</th>
+                        <th>Data</th>
 
-                            <th>Sala</th>
+                        <th>Sala</th>
 
-                            <th>Modalidade</th>
+                        <th>Stake</th>
 
-                            <th>Stake</th>
+                        <th>Lucro</th>
 
-                            <th>Buy-in</th>
+                        <th>Ações</th>
 
-                            <th>Cash-out</th>
+                    </tr>
 
-                            <th>Lucro</th>
+                </thead>
 
-                            <th>Observações</th>
+                <tbody id="sessionTable">
 
-                            <th>Ações</th>
+                </tbody>
 
-                        </tr>
-
-                    </thead>
-
-                    <tbody id="sessionsTableBody">
-
-                    </tbody>
-
-                </table>
-
-            </div>
+            </table>
 
         </div>
 
@@ -293,21 +230,5 @@
     <script src="script.js"></script>
 
 </body>
-  </div>
 
-    <footer
-        class="text-center mt-5 mb-3"
-        style="
-            color: #94a3b8;
-        "
-    >
-
-        Poker Bank Manager © 2026
-
-    </footer>
-
-    <!-- SCRIPT -->
-    <script src="script.js"></script>
-
-</body>
 </html>
